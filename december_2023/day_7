@@ -1,0 +1,22 @@
+class Solution(object):
+    def largestOddNumber(self, num):
+        """
+        :type num: str
+        :rtype: str
+        """
+        while num != "":
+            if int(num[-1]) % 2 == 0:
+                num = num[:-1]
+            else:
+                break
+        return num
+            
+        
+        
+s = Solution()
+print(s.largestOddNumber("52"))
+print(s.largestOddNumber("4206"))
+print(s.largestOddNumber("35427"))
+print(s.largestOddNumber("10133890"))
+        
+        

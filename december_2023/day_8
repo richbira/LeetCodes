@@ -1,0 +1,27 @@
+#binary three first try with chat GPT
+
+class TreeNode:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+        
+
+def insert_level_order(arr, root, i, n):
+    if i < n:
+        temp = TreeNode(arr[i])
+        root = temp
+        root.left = insert_level_order(arr, root.left, 2 * i + 1, n)
+        root.right = insert_level_order(arr, root.right, 2 * i + 2, n)
+    return root
+
+def inorder_traversal(root):
+    if root:
+        inorder_traversal(root.left)
+        print(root.value, end=' ')
+        inorder_traversal(root.right)
+
+values = [1, 2, 3, 4]
+root = insert_level_order(values, None, 0, len(values))
+print("Inorder traversal of the binary tree:")
+inorder_traversal(root)
